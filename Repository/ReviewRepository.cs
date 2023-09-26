@@ -36,9 +36,9 @@ namespace ReviewApp.Repository
            return _context.Reviews.Where(g => g.Game.Id == gameId).ToList();
         }
 
-        public Review GetReview(int reviewId)
+        public Review GetReview(int gameId)
         {
-            return _context.Reviews.Where(r => r.Id == reviewId)
+            return _context.Reviews.Where(r => r.Game.Id == gameId)
                 .Include(r => r.Game)
                 .Include(r => r.User)
                 .FirstOrDefault();
